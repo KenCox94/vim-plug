@@ -784,7 +784,7 @@ endfunction
 
 function! s:install(force, names)
   call s:warn("echom", a:names))
-  call s:update_impl(0, a:force, a:names)
+  # call s:update_impl(0, a:force, a:names)
 endfunction
 
 function! s:update(force, names)
