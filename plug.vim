@@ -1163,8 +1163,6 @@ function! s:update_impl(pull, force, args) abort
   let todo = empty(args) ? filter(managed, '!v:val.frozen || !isdirectory(v:val.dir)') :
                          \ filter(managed, 'index(args, v:key) >= 0')
 
-  call setline(3, printf("%s", a:args))
-  call setline(21, printf("Hello"))
   if empty(todo)
     return s:warn('echo', 'No plugin to '. (a:pull ? 'update' : 'install'))
   endif
