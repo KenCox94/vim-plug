@@ -783,6 +783,7 @@ function! s:infer_properties(name, repo)
 endfunction
 
 function! s:install(force, names)
+  call append(printf("%s", a:names))
   call s:update_impl(0, a:force, a:names)
 endfunction
 
@@ -1162,8 +1163,8 @@ function! s:update_impl(pull, force, args) abort
   let todo = empty(args) ? filter(managed, '!v:val.frozen || !isdirectory(v:val.dir)') :
                          \ filter(managed, 'index(args, v:key) >= 0')
 
-  call setline(3, printf("%s", sync))
-
+  call setline(3, printf("%s", a:args))
+  call setline(21, printf("Hello"))
   if empty(todo)
     return s:warn('echo', 'No plugin to '. (a:pull ? 'update' : 'install'))
   endif
